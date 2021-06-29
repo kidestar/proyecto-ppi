@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Voluntario;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class VoluntarioController extends Controller
@@ -14,7 +15,8 @@ class VoluntarioController extends Controller
      */
     public function index()
     {
-        //
+        $voluntarios = Voluntario::all();
+        return view('voluntario.voluntarioIndex', compact('voluntarios'));
     }
 
     /**
@@ -24,7 +26,7 @@ class VoluntarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('voluntario.voluntarioForm');
     }
 
     /**
@@ -35,7 +37,8 @@ class VoluntarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Voluntario::create($request->all());
+        return redirect()->route('voluntario.index');
     }
 
     /**
@@ -46,7 +49,7 @@ class VoluntarioController extends Controller
      */
     public function show(Voluntario $voluntario)
     {
-        //
+        return view('voluntario.voluntarioShow', compact('voluntario'));
     }
 
     /**
@@ -57,7 +60,7 @@ class VoluntarioController extends Controller
      */
     public function edit(Voluntario $voluntario)
     {
-        //
+        return view('voluntario.voluntarioForm', compact('voluntario'));
     }
 
     /**
@@ -69,7 +72,9 @@ class VoluntarioController extends Controller
      */
     public function update(Request $request, Voluntario $voluntario)
     {
-        //
+        Voluntario::where('id', $voluntario->id)->update($request->except('_token', '_method'));
+
+        return redirect()->route('voluntario.show', $voluntario);
     }
 
     /**
@@ -80,6 +85,7 @@ class VoluntarioController extends Controller
      */
     public function destroy(Voluntario $voluntario)
     {
-        //
+        $voluntario->delete();
+        return redirect()->route('voluntario.index');
     }
 }

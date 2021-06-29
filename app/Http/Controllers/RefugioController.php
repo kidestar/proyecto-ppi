@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Refugio;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class RefugioController extends Controller
@@ -14,7 +15,8 @@ class RefugioController extends Controller
      */
     public function index()
     {
-        //
+        $refugios = Refugio::all();
+        return view('refugio.refugioIndex', compact('refugios'));
     }
 
     /**
@@ -24,7 +26,7 @@ class RefugioController extends Controller
      */
     public function create()
     {
-        //
+        return view('refugio.refugioForm');
     }
 
     /**
@@ -35,7 +37,8 @@ class RefugioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Refugio::create($request->all());
+        return redirect()->route('refugio.index');
     }
 
     /**
@@ -46,7 +49,7 @@ class RefugioController extends Controller
      */
     public function show(Refugio $refugio)
     {
-        //
+        return view('refugio.refugioShow', compact('refugio'));
     }
 
     /**
@@ -57,7 +60,7 @@ class RefugioController extends Controller
      */
     public function edit(Refugio $refugio)
     {
-        //
+        return view('refugio.refugioForm', compact('refugio'));
     }
 
     /**
@@ -69,7 +72,9 @@ class RefugioController extends Controller
      */
     public function update(Request $request, Refugio $refugio)
     {
-        //
+        Refugio::where('id', $refugio->id)->update($request->except('_token', '_method'));
+
+        return redirect()->route('refugio.show', $refugio);
     }
 
     /**
@@ -80,6 +85,7 @@ class RefugioController extends Controller
      */
     public function destroy(Refugio $refugio)
     {
-        //
+        $refugio->delete();
+        return redirect()->route('refugio.index');
     }
 }

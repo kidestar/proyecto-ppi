@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PerroController;
+use App\Http\Controllers\RefugioController;
 use App\Http\Controllers\VoluntarioController;
 
 /*
@@ -40,4 +41,9 @@ Route::group(['middleware' => 'auth'], function()
 Route::group(['middleware' => 'auth'], function()
 {
     Route::resource('perro', PerroController::class);
+});
+
+Route::group(['middleware' => 'auth'], function()
+{
+    Route::resource('refugio', RefugioController::class);
 });

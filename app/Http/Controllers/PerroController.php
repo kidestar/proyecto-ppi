@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Perro;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class PerroController extends Controller
@@ -14,7 +15,8 @@ class PerroController extends Controller
      */
     public function index()
     {
-        return view('perro.index');
+        $perros = Perro::all();
+        return view('perro.perroIndex', compact('perros'));
     }
 
     /**
@@ -24,7 +26,7 @@ class PerroController extends Controller
      */
     public function create()
     {
-        return view('perro.create');
+        return view('perro.perroForm');
     }
 
     /**
@@ -36,8 +38,8 @@ class PerroController extends Controller
     public function store(Request $request)
     {
         //
-        $datosPerro = request()->all();
-        return response()->json($datosPerro);
+        Perro::create($request->all());
+        return redirect()->route('perro.index');
     }
 
     /**
@@ -49,6 +51,7 @@ class PerroController extends Controller
     public function show(Perro $perro)
     {
         //
+        return view('perro.perroShow', compact('perro'));
     }
 
     /**
@@ -60,6 +63,7 @@ class PerroController extends Controller
     public function edit(Perro $perro)
     {
         //
+        return view('perro.perroForm', compact('perro'));
     }
 
     /**
@@ -72,6 +76,9 @@ class PerroController extends Controller
     public function update(Request $request, Perro $perro)
     {
         //
+        Perro::where('id', $perro->id)->update($request->except('_token', '_method'));
+
+        return redirect()->route('perro.show', $perro);
     }
 
     /**
@@ -82,6 +89,7 @@ class PerroController extends Controller
      */
     public function destroy(Perro $perro)
     {
-        //
+        $perro->delete();
+        return redirect()->route('perro.index');
     }
 }

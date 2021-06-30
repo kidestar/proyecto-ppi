@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Refugio extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['Direccion', 'CantidadPerros'];
 }

@@ -16,7 +16,7 @@ class PerrosSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('perros')->insert(['Nombre' => 'Pepe',
+        /* DB::table('perros')->insert(['Nombre' => 'Pepe',
                                     'FechaIngreso' => '2020/10/11',
                                     'Raza' => 'Chihuahua',
                                     'Edad' => 1,
@@ -27,7 +27,7 @@ class PerrosSeeder extends Seeder
                                     'Raza' => 'Mestizo',
                                     'Edad' => 5,
                                     'Refugio' => 2,
-                                    'Foto' => '']);
-        
+                                    'Foto' => '']); */
+                                    \App\Models\Perro::factory(30)->create();
     }
 }

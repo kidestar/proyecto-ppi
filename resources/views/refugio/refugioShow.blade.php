@@ -25,6 +25,6 @@
     <form action="{{ route('refugio.destroy', $refugio) }}" method="POST">
         @csrf
         @method('DELETE')
-        <input type="submit" value="Eliminar refugio">
+        <input type="submit" value="Eliminar Refugio">
     </form>
 @endsection

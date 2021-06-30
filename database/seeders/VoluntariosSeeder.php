@@ -16,7 +16,7 @@ class VoluntariosSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('voluntarios')->insert(['Nombre' => 'Luis',
+/*         DB::table('voluntarios')->insert(['Nombre' => 'Luis',
                                         'Apellidos' => 'Sanchez',
                                         'IdRefugio' => 1,
                                         'FechaNacimiento' => '2000/07/08',
@@ -30,6 +30,7 @@ class VoluntariosSeeder extends Seeder
                             'Apellidos' => 'Sanchez',
                             'IdRefugio' => 2,
                             'FechaNacimiento' => '1970/12/07',
-                            'Foto' => '']);
+                            'Foto' => '']); */
+        \App\Models\Voluntario::factory(30)->create();
     }
 }

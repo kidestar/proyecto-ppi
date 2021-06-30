@@ -19,9 +19,10 @@ class RefugiosSeeder extends Seeder
         /* DB::table('refugios')->insert(['Direccion' => 'Av Patria 3421',
                                         'CantidadPerros' => 1]);
         DB::table('refugios')->insert(['Direccion' => 'Pedro Moreno 492',
-                                        'CantidadPerros' => 2]); */
-        /* Refugio::create(['Direccion' => 'Camino viejo a Tesistan 510',
+                                        'CantidadPerros' => 2]);
+        Refugio::create(['Direccion' => 'Camino viejo a Tesistan 510',
                         'CantidadPerros' => 0]); */
+        \App\Models\Refugio::factory(30)->create();
         
     }
 }

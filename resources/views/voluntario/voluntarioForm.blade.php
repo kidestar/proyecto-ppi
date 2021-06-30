@@ -7,6 +7,21 @@
 
 <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
 
+    @if ($errors->any())
+        <div class="min-w-0 p-4 text-white bg-red-600 rounded-lg shadow-xs">
+            <h4 class="mb-4 font-semibold">
+                Verifique los campos del formulario
+            </h4>
+            <p>
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            </p>
+        </div>
+    @endif
+
     @if(isset(($voluntario)))
     <form action="{{ route('voluntario.update', $voluntario) }}" method="POST" enctype="multipart/form-data">
         @method('PATCH')
@@ -20,14 +35,14 @@
                 <span class="text-gray-700 dark:text-gray-400">Nombre del Voluntario: </span>
                 <input
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    type="text" name="Nombre" id="Nombre" value="{{ $voluntario->Nombre ?? ''}}" />
+                    type="text" name="Nombre" id="Nombre" value="{{ old('Nombre') ?? $voluntario->Nombre ?? ''}}" />
             </label>
 
             <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Apellidos: </span>
                 <input
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    type="text" name="Apellidos" id="Apellidos" value="{{ $voluntario->Apellidos ?? ''}}" />
+                    type="text" name="Apellidos" id="Apellidos" value="{{ old('Apellidos') ?? $voluntario->Apellidos ?? ''}}" />
             </label>
 
 
@@ -35,21 +50,22 @@
                 <span class="text-gray-700 dark:text-gray-400">Fecha de Nacimiento: </span>
                 <input
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    type="text" name="FechaNacimiento" id="FechaNacimiento" value="{{ $voluntario->FechaNacimiento ?? ''}}" />
+                    type="text" name="FechaNacimiento" id="FechaNacimiento"
+                    value="{{ old('FechaNacimiento') ?? $voluntario->FechaNacimiento ?? ''}}" />
             </label>
 
             <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Id Refugio: </span>
                 <input
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    type="text" name="IdRefugio" id="IdRefugio" value="{{ $voluntario->IdRefugio ?? ''}}" />
+                    type="text" name="IdRefugio" id="IdRefugio" value="{{ old('IdRefugio') ?? $voluntario->IdRefugio ?? ''}}" />
             </label>
 
             <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Foto: </span>
                 <input
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    type="file" name="Foto" id="Foto" value="{{ $voluntario->Foto ?? ''}}" />
+                    type="file" name="Foto" id="Foto" value="{{ old('Foto') ?? $voluntario->Foto ?? ''}}" />
             </label>
 
             <!--         <div class="mt-4">

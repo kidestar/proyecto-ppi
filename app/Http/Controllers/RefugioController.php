@@ -8,6 +8,18 @@ use Illuminate\Http\Request;
 
 class RefugioController extends Controller
 {
+
+    
+    private $rules;
+
+    public function __construct()
+    {
+        $this->rules = [
+        'Direccion' => ['required','max:255'],
+        'CantidadPerros' => ['required','integer',],
+        ]; 
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,6 +49,7 @@ class RefugioController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate($this->rules);
         Refugio::create($request->all());
         return redirect()->route('refugio.index');
     }
@@ -72,6 +85,7 @@ class RefugioController extends Controller
      */
     public function update(Request $request, Refugio $refugio)
     {
+        $request->validate($this->rules);
         Refugio::where('id', $refugio->id)->update($request->except('_token', '_method'));
 
         return redirect()->route('refugio.show', $refugio);

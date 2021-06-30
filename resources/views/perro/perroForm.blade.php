@@ -6,6 +6,21 @@
 </h2>
 <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
 
+    @if ($errors->any())
+        <div class="min-w-0 p-4 text-white bg-red-600 rounded-lg shadow-xs">
+            <h4 class="mb-4 font-semibold">
+                Verifique los campos del formulario
+            </h4>
+            <p>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </p>
+        </div>
+    @endif
+
     @if(isset(($perro)))
     <form action="{{ route('perro.update', $perro) }}" method="POST" enctype="multipart/form-data">
         @method('PATCH')
@@ -19,14 +34,14 @@
                 <span class="text-gray-700 dark:text-gray-400">Nombre del Perro: </span>
                 <input
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    type="text" name="Nombre" id="Nombre" value="{{ $perro->Nombre ?? ''}}" />
+                    type="text" name="Nombre" id="Nombre" value="{{ old('Nombre') ?? $perro->Nombre ?? ''}}" />
             </label>
 
             <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Fecha Ingreso: </span>
                 <input
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    type="text" name="FechaIngreso" id="FechaIngreso" value="{{ $perro->FechaIngreso ?? ''}}" />
+                    type="text" name="FechaIngreso" id="FechaIngreso" value="{{ old('FechaIngreso') ?? $perro->FechaIngreso ?? ''}}" />
             </label>
 
 
@@ -34,28 +49,28 @@
                 <span class="text-gray-700 dark:text-gray-400">Raza: </span>
                 <input
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    type="text" name="Raza" id="Raza" value="{{ $perro->Raza ?? ''}}" />
+                    type="text" name="Raza" id="Raza" value="{{ old('Raza') ?? $perro->Raza ?? ''}}" />
             </label>
 
             <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Edad: </span>
                 <input
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    type="text" name="Edad" id="Edad" value="{{ $perro->Edad ?? ''}}" />
+                    type="text" name="Edad" id="Edad" value="{{ old('Edad') ?? $perro->Edad ?? ''}}" />
             </label>
 
             <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Refugio: </span>
                 <input
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    type="text" name="Refugio" id="Refugio" value="{{ $perro->Refugio ?? ''}}" />
+                    type="text" name="Refugio" id="Refugio" value="{{ old('Refugio') ??  $perro->Refugio ?? ''}}" />
             </label>
 
             <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Foto: </span>
                 <input
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    type="file" name="Foto" id="Foto" value="{{ $perro->Foto ?? ''}}" />
+                    type="file" name="Foto" id="Foto" value="{{ old('Foto') ?? $perro->Foto ?? ''}}" />
             </label>
 
             <!--         <div class="mt-4">

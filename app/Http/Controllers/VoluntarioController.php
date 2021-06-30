@@ -8,6 +8,19 @@ use Illuminate\Http\Request;
 
 class VoluntarioController extends Controller
 {
+    private $rules;
+
+    public function __construct()
+    {
+        $this->rules = [
+        'Nombre' => ['required','max:255'],
+        'Apellidos' => ['required','string','max:255'],
+        'FechaNacimiento' => ['required','date',],
+        'IdRefugio' => ['integer','min:1'],
+        'Foto' => ['required']
+        ]; 
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,6 +50,7 @@ class VoluntarioController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate($this->rules);
         Voluntario::create($request->all());
         return redirect()->route('voluntario.index');
     }
@@ -72,6 +86,8 @@ class VoluntarioController extends Controller
      */
     public function update(Request $request, Voluntario $voluntario)
     {
+        $request->validate($this->rules);
+        
         Voluntario::where('id', $voluntario->id)->update($request->except('_token', '_method'));
 
         return redirect()->route('voluntario.show', $voluntario);

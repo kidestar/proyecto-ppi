@@ -8,6 +8,21 @@ use Illuminate\Http\Request;
 
 class PerroController extends Controller
 {
+
+    private $rules;
+
+    public function __construct()
+    {
+        $this->rules = [
+        'Nombre' => ['required','max:255'],
+        'FechaIngreso' => ['required','date',],
+        'Raza' => ['required','max:255',],
+        'Edad' => ['integer','min:0'],
+        'Refugio' => ['required','max:255',],
+        'Foto' => ['required'] 
+        ]; 
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +52,7 @@ class PerroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate($this->rules);
         Perro::create($request->all());
         return redirect()->route('perro.index');
     }
@@ -75,7 +90,8 @@ class PerroController extends Controller
      */
     public function update(Request $request, Perro $perro)
     {
-        //
+        $request->validate($this->rules);
+
         Perro::where('id', $perro->id)->update($request->except('_token', '_method'));
 
         return redirect()->route('perro.show', $perro);

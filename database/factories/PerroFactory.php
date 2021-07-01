@@ -26,7 +26,6 @@ class PerroFactory extends Factory
             'FechaIngreso' => $this->faker->date(),
             'Raza' => 'Mestizo',
             'Edad' => $this->faker->numberBetween(1,15),
-            'Refugio' => $this->faker->numberBetween(1,3),
             'Foto' => ''
         ];
     }

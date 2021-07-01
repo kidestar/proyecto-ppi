@@ -9,5 +9,10 @@ class Refugio extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['Direccion', 'CantidadPerros'];
+    protected $fillable = ['Direccion', 'CantidadPerros', 'perro_id'];
+
+    public function perros()
+    {
+        return $this->hasMany('App\Models\Perro');
+    }
 }

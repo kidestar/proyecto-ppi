@@ -9,6 +9,10 @@ class Perro extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['Nombre','FechaIngreso','Raza','Edad','Refugio','Foto'];
+    protected $fillable = ['Nombre','FechaIngreso','Raza','Edad','refugio_id','Foto'];
     
+    public function refugio()
+    {
+        return $this->belongsTo('App\Models\Refugio');
+    }
 }

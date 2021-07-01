@@ -24,7 +24,6 @@ class RefugioFactory extends Factory
         return [
             'Direccion' => $this->faker->address(),
             'CantidadPerros' => $this->faker->numberBetween(0,50),
-            'perro_id' => $this->faker->numberBetween(0,30)
         ];
     }
 }

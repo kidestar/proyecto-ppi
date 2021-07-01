@@ -21,7 +21,7 @@
             <li>Fecha de Ingreso: {{ $perro->FechaIngreso }}</li>
             <li>Raza: {{ $perro->Raza }}</li>
             <li>Edad: {{ $perro->Edad }}</li>
-            <li>Refugio: {{ $perro->Refugio }}</li>
+            <li>Refugio: {{ $perro->refugio_id }}</li>
             <li>Foto: {{ $perro->Foto }}</li>
         </ul>
         </p>

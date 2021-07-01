@@ -17,7 +17,7 @@ class RefugioController extends Controller
         $this->rules = [
         'Direccion' => ['required','max:255'],
         'CantidadPerros' => ['required','integer',],
-        'perro_id' => ['required','integer','min:1']
+        //'perro_id' => ['required','integer','min:1']
         ]; 
     }
 

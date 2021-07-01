@@ -29,6 +29,7 @@
                     <th class="px-4 py-3">Fecha Ingreso</td>
                     <th class="px-4 py-3">Raza</td>
                     <th class="px-4 py-3">Edad</td>
+                    <th class="px-4 py-3">ID Refugio</td>
                     <th class="px-4 py-3">Foto</td>
                     <th class="px-4 py-3">Acciones</td>
                 </tr>
@@ -52,6 +53,9 @@
                     </td>
                     <td class="px-4 py-3 text-sm">
                         {{ $perro->Edad }}
+                    </td>
+                    <td class="px-4 py-3 text-sm">
+                        {{ $perro->refugio_id }}
                     </td>
                     <td class="px-4 py-3 text-sm">
                         {{ $perro->Foto }}

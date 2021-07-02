@@ -9,7 +9,7 @@ class Perro extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['Nombre','FechaIngreso','Raza','Edad','refugio_id','Foto'];
+    protected $fillable = ['Nombre','FechaIngreso','Raza','Edad','Foto'];
     
     public function refugio()
     {

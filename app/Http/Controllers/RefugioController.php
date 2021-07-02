@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Refugio;
+use App\Models\Voluntario;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class RefugioController extends Controller
@@ -28,7 +30,8 @@ class RefugioController extends Controller
      */
     public function index()
     {
-        $refugios = Refugio::all();
+        $refugios = Auth::user()->refugios;
+        //$refugios = Refugio::all();
         return view('refugio.refugioIndex', compact('refugios'));
     }
 
@@ -51,6 +54,8 @@ class RefugioController extends Controller
     public function store(Request $request)
     {
         $request->validate($this->rules);
+
+        $request->merge(['user_id' => $request->user()->id]);
         Refugio::create($request->all());
         return redirect()->route('refugio.index');
     }
@@ -63,7 +68,8 @@ class RefugioController extends Controller
      */
     public function show(Refugio $refugio)
     {
-        return view('refugio.refugioShow', compact('refugio'));
+        $voluntarios = Voluntario::get();
+        return view('refugio.refugioShow', compact('refugio', 'voluntarios'));
     }
 
     /**
@@ -102,5 +108,12 @@ class RefugioController extends Controller
     {
         $refugio->delete();
         return redirect()->route('refugio.index');
+    }
+
+    public function agregaVoluntario(Request $request, Refugio $refugio)
+    {
+        $refugio->voluntarios()->attach($request->voluntario_id);
+        //dd($request->all());
+        return redirect()->route('refugio.show', $refugio);
     }
 }

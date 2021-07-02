@@ -43,7 +43,9 @@ Route::group(['middleware' => 'auth'], function()
     Route::resource('perro', PerroController::class);
 });
 
+
 Route::group(['middleware' => 'auth'], function()
 {
+    Route::post('refugio/{refugio}/agrega-voluntario', [RefugioController::class, 'agregaVoluntario'])->name('refugio.agrega-voluntario');
     Route::resource('refugio', RefugioController::class);
 });

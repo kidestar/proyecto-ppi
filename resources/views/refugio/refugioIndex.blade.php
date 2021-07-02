@@ -19,6 +19,7 @@
                     <th class="px-4 py-3">ID</td>
                     <th class="px-4 py-3">Dirección</td>
                     <th class="px-4 py-3">Cantidad de Perros</td>
+                    <th class="px-4 py-3">Usuario</td>
                     <th class="px-4 py-3">Acciones</td>
                 </tr>
             </thead>
@@ -35,6 +36,9 @@
                     </td>
                     <td class="px-4 py-3 text-sm">
                         {{ $refugio->CantidadPerros }}
+                    </td>
+                    <td class="px-4 py-3 text-sm">
+                        {{ $refugio->user->name }}
                     </td>
                     <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">

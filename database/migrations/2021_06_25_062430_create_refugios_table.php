@@ -18,8 +18,10 @@ class CreateRefugiosTable extends Migration
 
             $table->string('Direccion');
             $table->integer('CantidadPerros');
+            $table->unsignedBigInteger('user_id');
             //$table->unsignedBigInteger('perro_id');
             //$table->foreign('perro_id')->references('id')->on('perros');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

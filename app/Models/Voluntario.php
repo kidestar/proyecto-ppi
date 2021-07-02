@@ -10,4 +10,10 @@ class Voluntario extends Model
     use HasFactory;
 
     protected $fillable = ['Nombre','Apellidos','FechaNacimiento','IdRefugio','Foto'];
+
+
+    public function refugios()
+    {
+        return $this->belongsToMany(Refugio::class);
+    }
 }

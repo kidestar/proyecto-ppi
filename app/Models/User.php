@@ -18,6 +18,11 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    public function refugios()
+    {
+        return $this->hasMany('App\Models\Refugio');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

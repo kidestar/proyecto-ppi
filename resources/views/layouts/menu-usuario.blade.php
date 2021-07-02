@@ -69,8 +69,8 @@
                       </a>
                     </li>
                     <li class="flex">
-                      <form method="POST" action="{{route('logout')}}">
-                          <input type="hidden" name="_token" value="31ENi7G1VMcRtLVXKpDYsXL1awk5Xteqp7ezkjOx">
+                      <form method="POST" action="{{ route('logout') }}">
+                          @csrf
                           <a
                         class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                         href="#"

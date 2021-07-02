@@ -44,7 +44,7 @@
                         {{ $voluntario->FechaNacimiento }}
                     </td>
                     <td class="px-4 py-3 text-sm">
-                        {{ $voluntario->IdRefugio }}
+                        {{ $voluntario->refugio_id }}
                     </td>
                     <td class="px-4 py-3 text-sm">
                         {{ $voluntario->Foto }}

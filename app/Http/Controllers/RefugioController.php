@@ -7,6 +7,7 @@ use App\Models\Voluntario;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class RefugioController extends Controller
 {
@@ -22,7 +23,7 @@ class RefugioController extends Controller
         //'perro_id' => ['required','integer','min:1']
         ]; 
     }
-
+   
     /**
      * Display a listing of the resource.
      *
@@ -30,7 +31,8 @@ class RefugioController extends Controller
      */
     public function index()
     {
-        $refugios = Auth::user()->refugios;
+        //$refugios = Auth::user()->refugios;
+        $refugios = Refugio::with('user:id,name')->get();
         //$refugios = Refugio::all();
         return view('refugio.refugioIndex', compact('refugios'));
     }
@@ -42,6 +44,9 @@ class RefugioController extends Controller
      */
     public function create()
     {
+        if(!Gate::allows('admin-refugios')){
+            abort(403);
+        }
         return view('refugio.refugioForm');
     }
 

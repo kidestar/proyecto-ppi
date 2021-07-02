@@ -19,8 +19,6 @@ class CreateVoluntariosTable extends Migration
             $table->string('Nombre');
             $table->string('Apellidos');
             $table->date('FechaNacimiento');
-            $table->integer('user_id');
-            $table->string('Foto');
             
             $table->timestamps();
         });

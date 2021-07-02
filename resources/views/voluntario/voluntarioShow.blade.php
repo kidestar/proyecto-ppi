@@ -19,10 +19,8 @@
         <ul>
             <li>ID: {{ $voluntario->id }}</li>
             <li>Nombre: {{ $voluntario->Nombre }}</li>
-            <li>Fecha de Ingreso: {{ $voluntario->Apellidos }}</li>
-            <li>Raza: {{ $voluntario->FechaNacimiento }}</li>
-            <li>Edad: {{ $voluntario->IdRefugio }}</li>
-            <li>Foto: {{ $voluntario->Foto }}</li>
+            <li>Apellidos: {{ $voluntario->Apellidos }}</li>
+            <li>Fecha de Nacimiento: {{ $voluntario->FechaNacimiento }}</li>
         </ul>
         </p>
     </div>

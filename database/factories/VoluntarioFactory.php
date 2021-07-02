@@ -24,9 +24,8 @@ class VoluntarioFactory extends Factory
         return [
             'Nombre' => $this->faker->firstName(),
             'Apellidos' => $this->faker->lastName(),
-            'user_id' => $this->faker->numberBetween(1,3),
             'FechaNacimiento' => $this->faker->date(),
-            'Foto' => ''
+
         ];
     }
 }

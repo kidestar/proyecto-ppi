@@ -22,7 +22,6 @@
             <li>Raza: {{ $perro->Raza }}</li>
             <li>Edad: {{ $perro->Edad }}</li>
             <li>Refugio: {{ $perro->refugio_id }}</li>
-            <li>Foto: {{ $perro->Foto }}</li>
         </ul>
         </p>
     </div>

@@ -27,7 +27,6 @@ class PerroFactory extends Factory
             'Raza' => 'Mestizo',
             'Edad' => $this->faker->numberBetween(1,15),
             'refugio_id' => $this->faker->numberBetween(7,15),
-            'Foto' => ''
         ];
     }
 }

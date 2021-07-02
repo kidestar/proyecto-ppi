@@ -44,9 +44,7 @@ class RefugioController extends Controller
      */
     public function create()
     {
-        if(!Gate::allows('admin-refugios')){
-            abort(403);
-        }
+        /* $this->authorize('create'); */
         return view('refugio.refugioForm');
     }
 
@@ -58,6 +56,10 @@ class RefugioController extends Controller
      */
     public function store(Request $request)
     {
+
+        if(!Gate::allows('admin-refugios')){
+            abort(403);
+        }
         $request->validate($this->rules);
 
         $request->merge(['user_id' => $request->user()->id]);
@@ -85,6 +87,7 @@ class RefugioController extends Controller
      */
     public function edit(Refugio $refugio)
     {
+        /* $this->authorize('update', $refugio); */
         return view('refugio.refugioForm', compact('refugio'));
     }
 

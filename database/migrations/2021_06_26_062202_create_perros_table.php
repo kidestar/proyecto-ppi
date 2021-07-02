@@ -21,7 +21,6 @@ class CreatePerrosTable extends Migration
             $table->string('Raza');
             $table->smallInteger('Edad');
             $table->unsignedBigInteger('refugio_id');
-            $table->string('Foto');
             
             $table->timestamps();
             $table->foreign('refugio_id')->references('id')->on('refugios');

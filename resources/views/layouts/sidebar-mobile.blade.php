@@ -60,7 +60,7 @@
         </ul>
         <ul>
             <li class="relative px-6 py-3">
-                <button
+               <!--  <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                     @click="togglePagesMenu" aria-haspopup="true">
                     <span class="inline-flex items-center">
@@ -90,7 +90,7 @@
                             <a class="w-full" href="#">Ej. Submenu</a>
                         </li>
                     </ul>
-                </template>
+                </template> -->
             </li>
         </ul>
         @endauth

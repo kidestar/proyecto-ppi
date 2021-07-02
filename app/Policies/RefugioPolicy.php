@@ -41,7 +41,7 @@ class RefugioPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->tipo == 'Administrador_refugio';
     }
 
     /**

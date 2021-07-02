@@ -9,7 +9,7 @@ class Voluntario extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['Nombre','Apellidos','user_id','FechaNacimiento','Foto'];
+    protected $fillable = ['Nombre','Apellidos','FechaNacimiento'];
 
 
     public function refugios()

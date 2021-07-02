@@ -19,7 +19,6 @@ class PerroController extends Controller
         'Raza' => ['required','max:255',],
         'Edad' => ['integer','min:0'],
         'refugio_id' => ['required','integer','min:1'],
-        'Foto' => ['required'] 
         ]; 
     }
 

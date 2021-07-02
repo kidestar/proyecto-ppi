@@ -16,8 +16,7 @@ class VoluntarioController extends Controller
         'Nombre' => ['required','max:255'],
         'Apellidos' => ['required','string','max:255'],
         'FechaNacimiento' => ['required','date',],
-        'IdRefugio' => ['integer','min:1'],
-        'Foto' => ['required']
+
         ]; 
     }
 

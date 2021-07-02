@@ -66,13 +66,6 @@
                     type="text" name="refugio_id" id="refugio_id" value="{{ old('refugio_id') ?? $perro->refugio_id ?? ''}}" />
             </label>
 
-            <label class="block text-sm">
-                <span class="text-gray-700 dark:text-gray-400">Foto: </span>
-                <input
-                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    type="file" name="Foto" id="Foto" value="{{ old('Foto') ?? $perro->Foto ?? ''}}" />
-            </label>
-
             <!--         <div class="mt-4">
             <input class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" type="submit"
                 value="Guardar">
